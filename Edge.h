@@ -1,31 +1,25 @@
-//
-// Created by Farukh Saidmuratov on 4/28/18.
-//
-
-#ifndef PATHFINDING_EDGE_H
-#define PATHFINDING_EDGE_H
+#pragma once 
 
 #include "Vertex.h"
 
-// Directional edge
+/**
+ * 
+ * 
+**/
 class Edge {
-public:
-    Edge();
-    Edge(Vertex, Vertex, unsigned int = 0);
-    ~Edge();
+    public:
+        Edge(Vertex, Vertex, unsigned int = 0);
+        ~Edge();
 
-    Vertex getStart() { return start; }
-    Vertex getEnd() { return destination; }
-    size_t getDist() { return distance; }
+        Vertex getSource() { return start; }
+        Vertex getSink() { return destination; }
+        int getCost() { return cost; }
 
-    void setStart(Vertex);
-    void setEnd(Vertex);
-    void setDist(size_t);
-private:
-    Vertex start;
-    Vertex destination;
-    size_t distance;
+        void setSource(Vertex);
+        void setSink(Vertex);
+        void setCost(int);
+    private:
+        Vertex start;
+        Vertex destination;
+        int cost;
 };
-
-
-#endif //PATHFINDING_EDGE_H

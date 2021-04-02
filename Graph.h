@@ -1,34 +1,34 @@
-//
-// Created by Farukh Saidmuratov on 4/28/18.
-//
+#pragma once 
 
-#ifndef PATHFINDING_GRAPH_H
-#define PATHFINDING_GRAPH_H
-
-#include <cstddef>
-#include <cstdlib>
-#include <algorithm>
-#include <iostream>
-#include <time.h>
 #include "Edge.h"
+#include <unordered_map>
+#include <vector>
 
+
+/**
+ * 
+ * 
+**/
 class Graph {
 public:
-    Graph(size_t = 0, size_t = 0, size_t = 5);
+    Graph();
+    Graph(const Graph&);
+
     ~Graph();
 
-    void generateGraph();
-    void printGraph();
-    void DijkstraShortestPath(Vertex, Vertex);
+    Vertex* getVerts();
+    Edge* getNeighbors(Vertex);
 
-    Vertex* getNodes();
+    void addVertex(Vertex, vector<Edge>);
+    void addNeighbor(Vertex, Vertex, int); 
+
+    bool isEmpty(); 
+
+    void printGraph();
 private:
-    size_t maximumDist;
     size_t vertices;
     size_t maxEdges;
-    Vertex *nodes;
-    Edge *links;
+
+    unordered_map<Vertex, vector<Edge>> graph;
 };
 
-
-#endif //PATHFINDING_GRAPH_H

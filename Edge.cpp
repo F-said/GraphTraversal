@@ -1,37 +1,36 @@
-//
-// Created by Farukh Saidmuratov on 4/28/18.
-//
-
 #include "Edge.h"
 
-Edge::Edge() {
-    this->start = NULL;
-    this->destination = NULL;
-    this->distance = 0;
-}
 
-Edge::Edge(Vertex start, Vertex destination, unsigned int distance) {
+/**
+ * 
+ * 
+**/
+Edge::Edge(Vertex start, Vertex destination, unsigned int cost) : start(start), destination(destination), cost(cost) {}
+
+Edge::~Edge() {}
+
+/**
+ * 
+ * 
+**/
+void Edge::setSource(Vertex start) {
     this->start = start;
+}
+
+
+/**
+ * 
+ * 
+**/
+void Edge::setSink(Vertex destination) {
     this->destination = destination;
-    this->distance = distance;
 }
 
-Edge::~Edge() {
-}
 
-void Edge::setStart(Vertex start) {
-    if(start.getLabel() != this->destination.getLabel())
-        this->start = start;
-    else
-        return;
-}
-void Edge::setEnd(Vertex destination) {
-    if(destination.getLabel() != this->start.getLabel())
-        this->destination = destination;
-    else
-        return;
-}
-
-void Edge::setDist(size_t distance) {
-    this->distance = distance;
+/**
+ * 
+ * 
+**/
+void Edge::setCost(int cost) {
+    this->cost = cost;
 }
